@@ -18,6 +18,7 @@ cc.Class({
         },
         gravity: cc.p(0, -320), // 系统默认的
     },
+    isGame:false,
     isTouch:false,
     isMove:false,
     startX:0,
@@ -40,18 +41,10 @@ cc.Class({
         this._addBound(node, -width/2, 0, 20, height);
         this._addBound(node, width/2, 0, 20, height);
 
-        // let joint = node.addComponent(cc.MouseJoint);
-        // joint.mouseRegion = this.node;  
-
         node.parent = this.node;
-
-        // cc.director.getPhysicsManager().enabled = true;
-        // cc.director.getPhysicsManager().gravity = this.gravity;
     },
     start () {
-        // this.yellow.getComponent(cc.RigidBody).enabledContactListener = true;
-        // this.yellow.getComponent(cc.PhysicsCircleCollider).restitution = 10;
-
+        this.isGame = true;
         this.blue.on("touchstart",function(event){
             this.startX = event.getLocationX();
             this.startY = event.getLocationY();
@@ -76,12 +69,46 @@ cc.Class({
         },this);
     },
 
-    
+    redTween:false,
+    redTween2:false,
     update (dt) {
+        if(!this.isGame)return;
         if(this.isTouch && this.isMove){
             var newV2 = cc.v2(this.blueX + this.currentX - this.startX,this.blueY + this.currentY - this.startY);
             this.blue.setPosition(newV2);
         }
+        var rigid = this.yellow.getComponent(cc.RigidBody).linearVelocity;
+        if(Math.abs(this.red.x - this.yellow.x) < 40 && this.redTween && !this.redTween2){
+            this.redTween2 = true;
+            console.log("--------+ "+Math.abs(this.red.x - this.yellow.x)+" +---------");
+            cc.tween(this.red)
+            .to(0.3, { position: cc.v2(550, 0)})
+            .call(()=>{this.redTween2 = false;})
+            .start();
+        }else if(this.yellow.x > 0 && !this.redTween && rigid.x >= 0){
+            console.log("+++++++++++++"+this.yellow.x+"+++++++++++++");
+            this.redTween = true;
+            cc.tween(this.red)
+                .to(0.3, { position: cc.v2(this.yellow.x + 30, this.yellow.y + 30)})
+                .call(()=>{this.redTween = false;})
+                .start();
+        }
+    },
+
+    over:function(own){
+        this.isGame = false;
+        if(own == "left"){
+            console.log("+++++++++++++机器人胜利+++++++++++++");
+        }else{
+            console.log("+++++++++++++我方胜利+++++++++++++");
+        }
+        this.node.getChildByName("overPanel").active = true;
+    },
+
+    gameStart:function(event, customEventData){
+        console.log("+++++++++++++gameStart+++++++++++++");
+        this.isGame = true;
+        this.node.getChildByName("overPanel").active = false;
     },
 
     _addBound (node, x, y, width, height) {
