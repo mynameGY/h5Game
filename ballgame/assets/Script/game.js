@@ -18,15 +18,15 @@ cc.Class({
         },
         gravity: cc.p(0, -320), // 系统默认的
     },
-    isGame:false,
-    isTouch:false,
-    isMove:false,
-    startX:0,
-    startY:0,
-    blueX:0,
-    blueY:0,
-    currentX:0,
-    currentY:0,
+    _isGame:false,
+    _isTouch:false,
+    _isMove:false,
+    _startX:0,
+    _startY:0,
+    _blueX:0,
+    _blueY:0,
+    _currentX:0,
+    _currentY:0,
 
     // LIFE-CYCLE CALLBACKS:
     onLoad () {
@@ -105,7 +105,7 @@ cc.Class({
         this.node.getChildByName("overPanel").active = true;
     },
 
-    gameStart:function(event, customEventData){
+    gameStart:function(){
         console.log("+++++++++++++gameStart+++++++++++++");
         this.isGame = true;
         this.node.getChildByName("overPanel").active = false;
