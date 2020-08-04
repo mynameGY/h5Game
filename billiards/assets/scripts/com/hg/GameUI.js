@@ -152,9 +152,23 @@ cc.Class({
             this.ctx = this.node.getChildByName("graphics").getComponent(cc.Graphics);
         }
         this.ctx.clear();
+        var count = v1.sub(v2).mag()/10;
         this.ctx.moveTo(v1.x,v1.y);
-        this.ctx.lineTo(v2.x,v2.y);
+        for(var i=0;i<count-2;i++){
+            
+            if(i%2 == 0){
+                console.log("count : "+i%2 + "i : "+i);
+                console.log("(v2.x-v1.x) : "+(v2.x-v1.x));
+                this.ctx.moveTo(i*((v2.x-v1.x)/count),i*((v2.y-v1.y)/count));
+                this.ctx.lineTo((i+1)*((v2.x-v1.x)/count),(i+1)*((v2.y-v1.y)/count));
+                // this.ctx.moveTo((i+1)*((v2.x-v1.x)/count),(i+1)*((v2.y-v1.y)/count));
+            }
+        }
         this.ctx.stroke();
+        // this.ctx.moveTo(v1.x,v1.y);
+        // this.ctx.lineTo(v2.x,v2.y);
+        
+        
         // var gra = this.node.getChildByName("graphics").getComponent(cc.Graphics);
         // gra.moveTo(50,50);
         // gra.lineTo(50,150);

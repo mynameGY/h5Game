@@ -1,0 +1,120 @@
+{
+	"groups": [
+		{
+			"keys": "bg_jpg,egret_icon_png,description_json,bird_json,bird_png,die_mp3,hit_mp3,point_mp3,swooshing_mp3,wing_mp3,background_png,ground_png,pipedown_png,pipeup_png,scoreboard_png,space_tip_png,plane_json,plane_png,background2_png,ground2_png,pipedown2_png,pipeup2_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "bg_jpg",
+			"type": "image",
+			"url": "assets/bg.jpg"
+		},
+		{
+			"name": "egret_icon_png",
+			"type": "image",
+			"url": "assets/egret_icon.png"
+		},
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "bird_json",
+			"type": "json",
+			"url": "assets/animation/bird.json"
+		},
+		{
+			"name": "bird_png",
+			"type": "image",
+			"url": "assets/animation/bird.png"
+		},
+		{
+			"name": "die_mp3",
+			"type": "sound",
+			"url": "assets/sounds/die.mp3"
+		},
+		{
+			"name": "hit_mp3",
+			"type": "sound",
+			"url": "assets/sounds/hit.mp3"
+		},
+		{
+			"name": "point_mp3",
+			"type": "sound",
+			"url": "assets/sounds/point.mp3"
+		},
+		{
+			"name": "swooshing_mp3",
+			"type": "sound",
+			"url": "assets/sounds/swooshing.mp3"
+		},
+		{
+			"name": "wing_mp3",
+			"type": "sound",
+			"url": "assets/sounds/wing.mp3"
+		},
+		{
+			"name": "background_png",
+			"type": "image",
+			"url": "assets/image/background.png"
+		},
+		{
+			"name": "ground_png",
+			"type": "image",
+			"url": "assets/image/ground.png"
+		},
+		{
+			"name": "pipedown_png",
+			"type": "image",
+			"url": "assets/image/pipedown.png"
+		},
+		{
+			"name": "pipeup_png",
+			"type": "image",
+			"url": "assets/image/pipeup.png"
+		},
+		{
+			"name": "scoreboard_png",
+			"type": "image",
+			"url": "assets/image/scoreboard.png"
+		},
+		{
+			"name": "space_tip_png",
+			"type": "image",
+			"url": "assets/image/space_tip.png"
+		},
+		{
+			"name": "plane_json",
+			"type": "json",
+			"url": "assets/animation/plane.json"
+		},
+		{
+			"name": "plane_png",
+			"type": "image",
+			"url": "assets/animation/plane.png"
+		},
+		{
+			"name": "background2_png",
+			"type": "image",
+			"url": "assets/image/background2.png"
+		},
+		{
+			"name": "ground2_png",
+			"type": "image",
+			"url": "assets/image/ground2.png"
+		},
+		{
+			"name": "pipedown2_png",
+			"type": "image",
+			"url": "assets/image/pipedown2.png"
+		},
+		{
+			"name": "pipeup2_png",
+			"type": "image",
+			"url": "assets/image/pipeup2.png"
+		}
+	]
+}
